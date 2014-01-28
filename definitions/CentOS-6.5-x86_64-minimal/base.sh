@@ -10,7 +10,21 @@ enabled=1
 gpgcheck=0
 EOM
 
-yum -y install gcc make gcc-c++ kernel-devel-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils
+#cat > /etc/yum.repos.d/remi.repo << EOM
+#[remi]
+#name=remi
+#enabled=1
+#gpgcheck=1
+#gpgkey=http://rpms.famillecollet.com/RPM-GPG-KEY-remi
+#mirrorlist=http://rpms.famillecollet.com/enterprise/\$releasever/remi/mirror
+#sslverify=1
+#EOM
+
+yum clean all
+yum -y update
+yum -y install gcc make gcc-c++ kernel-devel-`uname -r` zlib-devel openssl-devel readline-devel sqlite-devel perl wget dkms nfs-utils rsync
+yum -y groupinstall 'Development tools'
+yum -y update
 
 # Make ssh faster by not waiting on DNS
 echo "UseDNS no" >> /etc/ssh/sshd_config
