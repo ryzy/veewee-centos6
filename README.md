@@ -15,7 +15,7 @@ This is a [veewee](https://github.com/jedi4ever/veewee) template for CentOS 6.5 
 bundle exec veewee parallels build centos-6.5-x86_64-minimal --force
 
 # export the box
-bundle exec veewee parallels export centos-6.5-x86_64-minimal
+bundle exec veewee parallels export centos-6.5-x86_64-minimal --force
 
 # make built box available for Vagrant
 # Note: use the same name you'll use in your Vagrantfile 'config.vm.box' option
